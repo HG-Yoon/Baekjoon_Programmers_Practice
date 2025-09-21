@@ -1,4 +1,6 @@
 import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class Main {
 
@@ -6,7 +8,9 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        bw.write(String.valueOf("2025-08-04"));
+        Date today = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        bw.write(sdf.format(today));
 
         bw.flush();
         bw.close();
