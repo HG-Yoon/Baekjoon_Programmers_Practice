@@ -1,5 +1,5 @@
 import java.io.*;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class Main {
 
@@ -8,10 +8,10 @@ public class Main {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int R1 = Integer.parseInt(st.nextToken());
-        int S = Integer.parseInt(st.nextToken());
-        int R2 = S * 2 - R1;
-        bw.write(String.valueOf(R2));
+        int r1 = Integer.parseInt(st.nextToken());
+        int s = Integer.parseInt(st.nextToken());
+        int r2 = s * 2 - r1;
+        bw.write(String.valueOf(r2));
 
         bw.flush();
         bw.close();
