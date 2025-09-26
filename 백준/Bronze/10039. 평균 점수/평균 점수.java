@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.*;
 
 public class Main {
 
@@ -17,7 +18,7 @@ public class Main {
         }
         int avg = sum / 5;
         bw.write(String.valueOf(avg));
-
+        
         bw.flush();
         bw.close();
         br.close();
