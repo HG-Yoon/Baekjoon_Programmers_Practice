@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.*;
 
 public class Main {
 
@@ -6,16 +7,16 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        String S = br.readLine();
-        int[] count = new int[26];
-        for (int i = 0; i < S.length(); i++) {
-            char c = S.charAt(i);
-            count[c - 'a']++;
+        String s = br.readLine();
+        int[] counts = new int[26];
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            counts[c - 'a']++;
         }
-        for (int i = 0; i < count.length; i++) {
-            bw.write(String.valueOf(count[i]) + " ");
+        for (int i = 0; i < 26; i++) {
+            bw.write(String.valueOf(counts[i]) + " ");
         }
-        
+
         bw.flush();
         bw.close();
         br.close();
