@@ -1,5 +1,5 @@
 import java.io.*;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class Main {
 
@@ -8,25 +8,16 @@ public class Main {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int A = Integer.parseInt(st.nextToken()); // 시
-        int B = Integer.parseInt(st.nextToken()); // 분
-        int C = Integer.parseInt(st.nextToken()); // 초
-        int D = Integer.parseInt(br.readLine()); // 요리하는 데 필요한 시간
+        int a = Integer.parseInt(st.nextToken());
+        int b = Integer.parseInt(st.nextToken());
+        int c = Integer.parseInt(st.nextToken());
+        int d = Integer.parseInt(br.readLine());
+        int totalSeconds = a * 3600 + b * 60 + c + d;
+        int h = (totalSeconds / 3600) % 24;
+        int m = (totalSeconds % 3600) / 60;
+        int s = totalSeconds % 60;
+        bw.write(String.valueOf(h) + " " + String.valueOf(m) + " " + String.valueOf(s));
 
-        C += D;
-        if (C > 59) {
-            B += C / 60;
-            C = C % 60;
-        }
-        if (B > 59) {
-            A += B / 60;
-            B = B % 60;
-        }
-        if (A > 23) {
-            A = A % 24;
-        }
-        bw.write(String.valueOf(A) + " " + String.valueOf(B) + " " + String.valueOf(C));
-        
         bw.flush();
         bw.close();
         br.close();
