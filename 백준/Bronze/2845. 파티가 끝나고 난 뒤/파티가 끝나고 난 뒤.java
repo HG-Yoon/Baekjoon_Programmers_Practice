@@ -1,5 +1,5 @@
 import java.io.*;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class Main {
 
@@ -8,13 +8,13 @@ public class Main {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int l = Integer.parseInt(st.nextToken()); // 1m^2당 사람의 수
-        int p = Integer.parseInt(st.nextToken()); // 파티가 열렸던 곳의 넓이
+        int l = Integer.parseInt(st.nextToken());
+        int p = Integer.parseInt(st.nextToken());
         int[] arr = new int[5];
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < 5; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
-            bw.write(String.valueOf(arr[i] - (l * p)) + " ");
+            bw.write(String.valueOf(arr[i] - l * p) + " ");
         }
 
         bw.flush();
