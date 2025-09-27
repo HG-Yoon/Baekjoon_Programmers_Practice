@@ -1,16 +1,7 @@
 import java.io.*;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class Main {
-    static int solution(int n, int[] a) {
-        int answer = 0;
-        for (int i = 0; i < a.length; i++) {
-            if (a[i] == n) {
-                answer++;
-            }
-        }
-        return answer;
-    }
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -18,12 +9,16 @@ public class Main {
 
         int day = Integer.parseInt(br.readLine());
         int[] cars = new int[5];
+        int answer = 0;
         StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i = 0; i < 5; i++) {
             cars[i] = Integer.parseInt(st.nextToken());
+            if (cars[i] == day) {
+                answer++;
+            }
         }
-        bw.write(String.valueOf(solution(day, cars)));
-
+        bw.write(String.valueOf(answer));
+        
         bw.flush();
         bw.close();
         br.close();
