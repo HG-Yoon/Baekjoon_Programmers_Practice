@@ -1,5 +1,5 @@
 import java.io.*;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class Main {
 
@@ -7,23 +7,23 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        int[] minGukScores = new int[4];
-        int[] manSeScores = new int[4];
+        int[] minGuk = new int[4];
+        int[] manSae = new int[4];
         int s = 0, t = 0;
         StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i = 0; i < 4; i++) {
-            minGukScores[i] = Integer.parseInt(st.nextToken());
-            s += minGukScores[i];
+            minGuk[i] = Integer.parseInt(st.nextToken());
+            s += minGuk[i];
         }
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < 4; i++) {
-            manSeScores[i] = Integer.parseInt(st.nextToken());
-            t += manSeScores[i];
+            manSae[i] = Integer.parseInt(st.nextToken());
+            t += manSae[i];
         }
-        if (s != t) {
-            bw.write(String.valueOf(Math.max(s, t)));
-        } else {
+        if (s >= t) {
             bw.write(String.valueOf(s));
+        } else {
+            bw.write(String.valueOf(t));
         }
 
         bw.flush();
