@@ -1,5 +1,5 @@
 import java.io.*;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class Main {
 
@@ -16,7 +16,7 @@ public class Main {
             }
             bw.write(String.valueOf(m + f) + "\n");
         }
-
+        
         bw.flush();
         bw.close();
         br.close();
