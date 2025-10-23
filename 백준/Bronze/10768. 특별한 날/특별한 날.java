@@ -8,13 +8,21 @@ public class Main {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int month = Integer.parseInt(br.readLine());
-        int day = Integer.parseInt(br.readLine());
-        if (month < 2 || (month == 2 && day < 18)) {
+        int day= Integer.parseInt(br.readLine());
+        if(month<2){
             bw.write("Before");
-        } else if (month == 2 && day == 18) {
-            bw.write("Special");
-        } else if ((month == 2 && day > 18) || month > 2) {
-            bw.write("After");
+        }else{
+            if(month==2){
+                if(day<18){
+                    bw.write("Before");
+                }else if(day==18){
+                    bw.write("Special");
+                }else{
+                    bw.write("After");
+                }
+            }else{
+                bw.write("After");
+            }
         }
 
         bw.flush();
