@@ -8,13 +8,12 @@ public class Main {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int n = Integer.parseInt(st.nextToken());
-        int m = Integer.parseInt(st.nextToken());
-        for (int i = 0; i < n; i++) {
-            String originalLine = br.readLine();
-            StringBuilder sb = new StringBuilder(originalLine);
-            String flippedLine = sb.reverse().toString();
-            bw.write(flippedLine + "\n");
+        int n=Integer.parseInt(st.nextToken());
+        int m=Integer.parseInt(st.nextToken());
+        for(int i=1;i<=n;i++){
+            String s= br.readLine();
+            StringBuilder sb=new StringBuilder(s);
+            bw.write(sb.reverse().toString()+"\n");
         }
 
         bw.flush();
