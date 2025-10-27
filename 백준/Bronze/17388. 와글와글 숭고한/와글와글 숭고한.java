@@ -12,10 +12,10 @@ public class Main {
         int k = Integer.parseInt(st.nextToken());
         int h = Integer.parseInt(st.nextToken());
         int sum = s + k + h;
-        int min = Math.min(Math.min(s, k), h);
         if (sum >= 100) {
             bw.write("OK");
         } else {
+            int min = Math.min(s, Math.min(k, h));
             if (min == s) {
                 bw.write("Soongsil");
             } else if (min == k) {
@@ -24,7 +24,7 @@ public class Main {
                 bw.write("Hanyang");
             }
         }
-        
+
         bw.flush();
         bw.close();
         br.close();
