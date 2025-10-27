@@ -12,7 +12,7 @@ public class Main {
             String s = br.readLine();
             bw.write(String.valueOf(i) + ". " + s + "\n");
         }
-
+        
         bw.flush();
         bw.close();
         br.close();
