@@ -8,21 +8,20 @@ public class Main {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int t = Integer.parseInt(br.readLine());
+        String s;
         for (int i = 0; i < t; i++) {
-            String s = br.readLine();
-            String[] parts = s.split("");
-            int ans = 0;
-            int cnt = 0;
-            for (String part : parts) {
-                if (part.equals("O")) {
+            s = br.readLine();
+            char[] ch = s.toCharArray();
+            int cnt = 0, total = 0;
+            for (int j = 0; j < ch.length; j++) {
+                if (ch[j] == 'O') {
                     cnt++;
-                    ans += cnt;
-                } else if (part.equals("X")) {
+                    total += cnt;
+                } else {
                     cnt = 0;
-                    ans += cnt;
                 }
             }
-            bw.write(ans + "\n");
+            bw.write(String.valueOf(total) + "\n");
         }
 
         bw.flush();
