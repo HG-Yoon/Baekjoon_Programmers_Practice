@@ -8,13 +8,10 @@ public class Main {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         String s = br.readLine();
-        int cnt = 0;
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-            cnt += (int) c;
-        }
-        bw.write(String.valueOf(cnt - 44031));
-
+        char c = s.charAt(0);
+        int result = c - '가' + 1;
+        bw.write(String.valueOf(result));
+        
         bw.flush();
         bw.close();
         br.close();
