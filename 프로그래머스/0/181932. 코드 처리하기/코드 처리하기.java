@@ -1,18 +1,28 @@
 class Solution {
-        public String solution(String code) {
-            StringBuilder anwer = new StringBuilder();
-            int mode = 0;
-            for (int i = 0; i < code.length(); i++) {
-                char current = code.charAt(i);
-                if (current == '1') {
-                    mode = mode == 0 ? 1 : 0;
-                    continue;
+    public String solution(String code) {
+        StringBuilder sb = new StringBuilder();
+        int mode = 0;
+        char[] codeArr = code.toCharArray();
+        for (int i = 0; i < codeArr.length; i++) {
+            if (mode == 0) {
+                if (codeArr[i] == '1') {
+                    mode = 1;
+                } else {
+                    if (i % 2 == 0) {
+                        sb.append(codeArr[i]);
+                    }
                 }
-
-                if (i % 2 == mode) {
-                    anwer.append(current);
+            } else if (mode == 1) {
+                if (codeArr[i] == '1') {
+                    mode = 0;
+                } else {
+                    if (i % 2 != 0) {
+                        sb.append(codeArr[i]);
+                    }
                 }
             }
-            return anwer.length() == 0 ? "EMPTY" : anwer.toString();
         }
+        String answer = sb.toString();
+        return answer.isEmpty() ? "EMPTY" : answer;
     }
+}
