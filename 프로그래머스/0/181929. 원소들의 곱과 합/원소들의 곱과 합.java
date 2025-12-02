@@ -1,14 +1,12 @@
 class Solution {
-        public int solution(int[] num_list) {
-            int answer = 0;
-            int sum = 0;
-            int mul = 1;
-            for (int i = 0; i < num_list.length; i++) {
-                sum += num_list[i];
-                mul *= num_list[i];
-            }
-            int powOfSum = sum * sum;
-            answer = mul < powOfSum ? 1 : 0;
-            return answer;
+    public int solution(int[] num_list) {
+        int mul = 1;
+        int sumSquare = 0;
+        for (int i = 0; i < num_list.length; i++) {
+            mul *= num_list[i];
+            sumSquare += num_list[i];
         }
+        sumSquare *= sumSquare;
+        return mul < sumSquare ? 1 : 0;
     }
+}
