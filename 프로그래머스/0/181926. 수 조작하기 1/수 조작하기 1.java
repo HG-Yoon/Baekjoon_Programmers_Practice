@@ -1,18 +1,22 @@
 class Solution {
-        public int solution(int n, String control) {
-            int answer = 0;
-            for (int i = 0; i < control.toCharArray().length; i++) {
-                if (control.charAt(i) == 'w') {
-                    n += 1;
-                } else if (control.charAt(i) == 's') {
-                    n -= 1;
-                } else if (control.charAt(i) == 'd') {
-                    n += 10;
-                } else if (control.charAt(i) == 'a') {
-                    n -= 10;
-                }
+    public int solution(int n, String control) {
+        int answer = 0;
+        for (int i = 0; i < control.length(); i++) {
+            char c = control.charAt(i);
+            if (c == 'w') {
+                n += 1;
             }
-            answer = n;
-            return answer;
+            if (c == 's') {
+                n -= 1;
+            }
+            if (c == 'd') {
+                n += 10;
+            }
+            if (c == 'a') {
+                n -= 10;
+            }
         }
+        answer = n;
+        return answer;
     }
+}
