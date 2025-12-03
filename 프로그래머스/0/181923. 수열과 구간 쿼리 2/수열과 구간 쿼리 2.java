@@ -1,26 +1,28 @@
+import java.util.ArrayList;
+import java.util.List;
+
 class Solution {
-        public int[] solution(int[] arr, int[][] queries) {
-            int[] answer = new int[queries.length];
-            int index = 0;
-            for (int[] query : queries) {
-                int min = Integer.MAX_VALUE;
-                int s = query[0];
-                int e = query[1];
-                int k = query[2];
-                for (int i = s; i <= e; i++) {
-                    if (arr[i] > k) {
-                        if (arr[i] < min) {
-                            min = arr[i];
-                        }
-                    }
+    public int[] solution(int[] arr, int[][] queries) {
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < queries.length; i++) {
+            int s = queries[i][0];
+            int e = queries[i][1];
+            int k = queries[i][2];
+            int min = Integer.MAX_VALUE;
+            for (int j = s; j <= e; j++) {
+                if (arr[j] > k) {
+                    min = Math.min(min, arr[j]);
                 }
-                if (min == Integer.MAX_VALUE) {
-                    answer[index] = -1;
-                } else {
-                    answer[index] = min;
-                }
-                index++;
             }
-            return answer;
+            if (min != Integer.MAX_VALUE) {
+                list.add(min);
+            } else {
+                list.add(-1);
+            }
         }
+        int[] answer = list.stream()
+                .mapToInt(i -> i)
+                .toArray();
+        return answer;
     }
+}
