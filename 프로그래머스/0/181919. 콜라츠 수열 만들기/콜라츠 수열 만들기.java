@@ -1,19 +1,23 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 class Solution {
-        public int[] solution(int n) {
-            List<Integer> result = new ArrayList<>();
-            while (true) {
-                result.add(n);
-                if (n == 1) {
-                    break;
-                }
-                if (n % 2 == 0) {
-                    n /= 2;
-                } else {
-                    n = 3 * n + 1;
-                }
+    public int[] solution(int n) {
+        List<Integer> list = new ArrayList<>();
+        list.add(n);
+
+        while (n != 1) { // n이 1이 될 때까지 반복
+            if (n % 2 == 0) {
+                n /= 2;
+            } else {
+                n = 3 * n + 1;
             }
-            return result.stream().mapToInt(i -> i).toArray();
+            list.add(n);
         }
+
+        int[] answer = list.stream()
+                .mapToInt(i -> i)
+                .toArray();
+        return answer;
     }
+}
