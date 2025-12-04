@@ -1,21 +1,24 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 class Solution {
-        public int[] solution(int[] arr) {
-            List<Integer> stk = new ArrayList<>();
-            for (int i = 0; i < arr.length; ) {
-                if (stk.isEmpty()) {
-                    stk.add(arr[i]);
-                    i++;
-                } else {
-                    if (stk.get(stk.size() - 1) < arr[i]) {
-                        stk.add(arr[i]);
-                        i++;
-                    } else if (stk.get(stk.size() - 1) >= arr[i]) {
-                        stk.remove(stk.get(stk.size() - 1));
-                    }
-                }
+    public int[] solution(int[] arr) {
+        List<Integer> stkList = new ArrayList<>();
+        int i = 0;
+        while (i < arr.length) {
+            if (stkList.isEmpty()) {
+                stkList.add(arr[i]);
+                i++;
+            } else if (stkList.get(stkList.size() - 1) < arr[i]) {
+                stkList.add(arr[i]);
+                i++;
+            } else {
+                stkList.remove(stkList.get(stkList.size() - 1));
             }
-            return stk.stream().mapToInt(i -> i).toArray();
         }
+        int[] stk = stkList.stream()
+                .mapToInt(Integer::intValue)
+                .toArray();
+        return stk;
     }
+}
