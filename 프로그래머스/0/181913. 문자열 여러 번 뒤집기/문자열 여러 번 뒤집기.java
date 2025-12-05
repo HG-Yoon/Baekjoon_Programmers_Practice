@@ -1,13 +1,15 @@
 class Solution {
-        public String solution(String my_string, int[][] queries) {
-            String[] str = my_string.split("");
-            for (int[] query : queries) {
-                for (int i = query[0]; i <= (query[1] + query[0]) / 2; i++) {
-                    String temp = str[i];
-                    str[i] = str[query[1] + query[0] - i];
-                    str[query[1] + query[0] - i] = temp;
-                }
-            }
-            return String.join("", str);
+    public String solution(String my_string, int[][] queries) {
+        String answer = "";
+        StringBuilder sb = new StringBuilder(my_string);
+        for (int i = 0; i < queries.length; i++) {
+            int s = queries[i][0];
+            int e = queries[i][1];
+            String sub = sb.substring(s, e + 1);
+            String reversed = new StringBuilder(sub).reverse().toString();
+            sb.replace(s, e + 1, reversed);
         }
+        answer = sb.toString();
+        return answer;
     }
+}
