@@ -1,53 +1,41 @@
-import java.util.*;
-
 class Solution {
-        public int solution(int a, int b, int c, int d) {
-            int[] dice = {a, b, c, d};
-            Map<Integer, Integer> countMap = new HashMap<>();
-
-            // 각 숫자의 빈도 계산
-            for (int num : dice) {
-                countMap.put(num, countMap.getOrDefault(num, 0) + 1);
-            }
-
-            // 빈도에 따라 점수 계산
-            if (countMap.size() == 1) {
-                // 네 개 모두 같은 경우
-                return 1111 * a;
-            } else if (countMap.size() == 2) {
-                // 세 개가 같은 숫자이고, 나머지 하나는 다른 숫자
-                for (int key : countMap.keySet()) {
-                    if (countMap.get(key) == 3) {
-                        int p = key;
-                        int q = 0;
-                        for (int k : countMap.keySet()) {
-                            if (k != p) q = k;
-                        }
-                        return (int) Math.pow(10 * p + q, 2);
-                    }
-                }
-                // 두 개는 같은 숫자, 그리고 나머지 두 개도 서로 같은 숫자인데
-                // 이 두 숫자가 서로 다른 값일 때
-                List<Integer> keys = new ArrayList<>(countMap.keySet());
-                int p = keys.get(0);
-                int q = keys.get(1);
-                return (p + q) * Math.abs(p - q);
-            } else if (countMap.size() == 3) {
-                // 네 개 중 두 개는 같은 숫자
-                // 나머지 두 개는 서로 다른 숫자
-                int pair = 0;
-                List<Integer> singles = new ArrayList<>();
-                for (int key : countMap.keySet()) {
-                    if (countMap.get(key) == 2) {
-                        pair = key;
-                    } else {
-                        singles.add(key);
-                    }
-                }
-                return singles.get(0) * singles.get(1);
-            } else {
-                // 모두 다른 경우
-                return Arrays.stream(dice).min().getAsInt();
-            }
+    public int solution(int a, int b, int c, int d) {
+        int answer = 0;
+        if (a == b && a == c && a == d) {
+            answer = 1111 * a;
+        } else if (a == b && a == c && a != d) {
+            answer = (10 * a + d) * (10 * a + d);
+        } else if (a == b && a == d && a != c) {
+            answer = (10 * a + c) * (10 * a + c);
+        } else if (a == c && a == d && a != b) {
+            answer = (10 * a + b) * (10 * a + b);
+        } else if (b == c && b == d && b != a) {
+            answer = (10 * b + a) * (10 * b + a);
+        } else if (a == b && c == d && a != c) {
+            answer = (a + c) * Math.abs(a - c);
+        } else if (a == c && b == d && a != b) {
+            answer = (a + b) * Math.abs(a - b);
+        } else if (b == c && a == d && b != a) {
+            answer = (b + a) * Math.abs(b - a);
+        } else if (b == d && a == c && b != a) {
+            answer = (b + a) * Math.abs(b - a);
+        } else if (a == d && b == c && a != b) {
+            answer = (a + b) * Math.abs(a - b);
+        } else if (a == b && c != d && a != c && a != d) {
+            answer = c * d;
+        } else if (a == c && b != d && a != b && a != d) {
+            answer = b * d;
+        } else if (a == d && b != c && a != b && a != c) {
+            answer = b * c;
+        } else if (b == c && a != d && b != a && b != d) {
+            answer = a * d;
+        } else if (b == d && a != c && b != a && b != c) {
+            answer = a * c;
+        } else if (c == d && a != b && c != a && c != b) {
+            answer = a * b;
+        } else if (a != b && a != c && a != d && b != c && b != d && c != d) {
+            answer = Math.min(Math.min(a, b), Math.min(c, d));
         }
+        return answer;
     }
+}
