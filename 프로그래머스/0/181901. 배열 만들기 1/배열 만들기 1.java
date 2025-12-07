@@ -1,15 +1,19 @@
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 class Solution {
     public int[] solution(int n, int k) {
-        int[] answer = {};
-        List<Integer> list = Arrays.stream(answer).boxed().collect(Collectors.toList());
+        List<Integer> list = new ArrayList<>();
         for (int i = 1; i <= n; i++) {
             if (i % k == 0) {
                 list.add(i);
             }
         }
-        answer = list.stream().mapToInt(i -> i).toArray();
+        Collections.sort(list);
+        int[] answer = list.stream()
+                .mapToInt(Integer::intValue)
+                .toArray();
         return answer;
     }
 }
