@@ -1,28 +1,31 @@
-import java.util.*;
-import java.util.stream.*;
+import java.util.ArrayList;
+import java.util.List;
 
 class Solution {
     public int[] solution(int n, int[] slicer, int[] num_list) {
         int[] answer = {};
-        List<Integer>list=Arrays.stream(answer).boxed().collect(Collectors.toList());
-        if(n==1){
-            for(int i=0;i<=slicer[1];i++){
-                list.add(num_list[i]);
+        List<Integer> temp = new ArrayList<>();
+        int a = slicer[0];
+        int b = slicer[1];
+        int c = slicer[2];
+        if (n == 1) {
+            for (int i = 0; i <= b; i++) {
+                temp.add(num_list[i]);
             }
-        }else if(n==2){
-            for(int i=slicer[0];i<=num_list.length-1;i++){
-                list.add(num_list[i]);
+        } else if (n == 2) {
+            for (int i = a; i < num_list.length; i++) {
+                temp.add(num_list[i]);
             }
-        }else if(n==3){
-            for(int i=slicer[0];i<=slicer[1];i++){
-                list.add(num_list[i]);
+        } else if (n == 3) {
+            for (int i = a; i <= b; i++) {
+                temp.add(num_list[i]);
             }
-        }else if(n==4){
-            for(int i=slicer[0];i<=slicer[1];i+=slicer[2]){
-                list.add(num_list[i]);
+        } else if (n == 4) {
+            for (int i = a; i <= b; i += c) {
+                temp.add(num_list[i]);
             }
         }
-        answer=list.stream().mapToInt(i->i).toArray();
+        answer = temp.stream().mapToInt(Integer::intValue).toArray();
         return answer;
     }
 }
