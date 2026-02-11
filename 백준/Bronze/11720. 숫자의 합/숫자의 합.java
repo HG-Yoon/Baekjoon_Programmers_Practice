@@ -1,21 +1,24 @@
 import java.io.*;
-import java.util.StringTokenizer;
 
 public class Main {
-    public static void main(String[] args)throws IOException {
-        BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bufferedWriter=new BufferedWriter(new OutputStreamWriter(System.out));
-
-        int n= Integer.parseInt(bufferedReader.readLine());
-        StringTokenizer stringTokenizer=new StringTokenizer(bufferedReader.readLine());
-        String s= stringTokenizer.nextToken();
-        int sum=0;
-        for(int i=0;i<s.length();i++){
-            sum+=s.charAt(i)-'0';
+    static int solution(String str) {
+        int answer = 0;
+        for (char c : str.toCharArray()) {
+            answer += c - '0';
         }
-        bufferedWriter.write(String.valueOf(sum));
-        bufferedWriter.flush();
-        bufferedWriter.close();
-        bufferedReader.close();
+        return answer;
+    }
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        int n = Integer.parseInt(br.readLine());
+        String s = br.readLine();
+        bw.write(String.valueOf(solution(s)));
+
+        bw.flush();
+        bw.close();
+        br.close();
     }
 }
