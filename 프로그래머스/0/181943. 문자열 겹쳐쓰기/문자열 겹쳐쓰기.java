@@ -1,9 +1,9 @@
 class Solution {
     public String solution(String my_string, String overwrite_string, int s) {
         String answer = "";
-        String part1 = my_string.substring(0, s);
-        String part2 = my_string.substring(s + overwrite_string.length());
-        answer = part1 + overwrite_string + part2;
+        String prefix = my_string.substring(0, s);
+        String suffix = my_string.substring(overwrite_string.length() + s);
+        answer = prefix + overwrite_string + suffix;
         return answer;
     }
 }
