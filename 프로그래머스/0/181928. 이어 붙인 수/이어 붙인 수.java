@@ -1,19 +1,18 @@
 class Solution {
     public int solution(int[] num_list) {
         int answer = 0;
-        int odd = 0, even = 0;
-        StringBuilder sb1 = new StringBuilder();
-        StringBuilder sb2 = new StringBuilder();
+        String oddStr = "";
+        String evenStr = "";
         for (int i = 0; i < num_list.length; i++) {
             if (num_list[i] % 2 != 0) {
-                sb1.append(String.valueOf(num_list[i]));
+                oddStr += String.valueOf(num_list[i]);
             } else {
-                sb2.append(String.valueOf(num_list[i]));
+                evenStr += String.valueOf(num_list[i]);
             }
         }
-        odd = Integer.parseInt(sb1.toString());
-        even = Integer.parseInt(sb2.toString());
-        answer = odd + even;
+        int oddNum = Integer.parseInt(oddStr);
+        int evenNum = Integer.parseInt(evenStr);
+        answer = oddNum + evenNum;
         return answer;
     }
 }
