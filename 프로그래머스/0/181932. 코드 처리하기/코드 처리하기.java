@@ -1,28 +1,30 @@
 class Solution {
     public String solution(String code) {
-        StringBuilder sb = new StringBuilder();
+        String ret = "";
         int mode = 0;
-        char[] codeArr = code.toCharArray();
-        for (int i = 0; i < codeArr.length; i++) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < code.length(); i++) {
             if (mode == 0) {
-                if (codeArr[i] == '1') {
-                    mode = 1;
-                } else {
+                if (!(code.charAt(i) == '1')) {
                     if (i % 2 == 0) {
-                        sb.append(codeArr[i]);
+                        sb.append(code.charAt(i));
+                    }
+                } else {
+                    if (code.charAt(i) == '1') {
+                        mode = 1;
                     }
                 }
             } else if (mode == 1) {
-                if (codeArr[i] == '1') {
-                    mode = 0;
-                } else {
+                if (!(code.charAt(i) == '1')) {
                     if (i % 2 != 0) {
-                        sb.append(codeArr[i]);
+                        sb.append(code.charAt(i));
                     }
+                } else {
+                    mode = 0;
                 }
             }
         }
-        String answer = sb.toString();
-        return answer.isEmpty() ? "EMPTY" : answer;
+        ret = sb.toString();
+        return ret.isEmpty() ? "EMPTY" : ret;
     }
 }
