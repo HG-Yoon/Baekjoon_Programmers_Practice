@@ -3,21 +3,22 @@ import java.util.List;
 
 class Solution {
     public int[] solution(int n) {
+        int[] answer = {};
         List<Integer> list = new ArrayList<>();
-        list.add(n);
-
-        while (n != 1) { // n이 1이 될 때까지 반복
+        while (true) {
             if (n % 2 == 0) {
+                list.add(n);
                 n /= 2;
             } else {
+                list.add(n);
                 n = 3 * n + 1;
             }
-            list.add(n);
+            if (n == 1) {
+                list.add(n);
+                break;
+            }
         }
-
-        int[] answer = list.stream()
-                .mapToInt(i -> i)
-                .toArray();
+        answer = list.stream().mapToInt(Integer::intValue).toArray();
         return answer;
     }
 }
