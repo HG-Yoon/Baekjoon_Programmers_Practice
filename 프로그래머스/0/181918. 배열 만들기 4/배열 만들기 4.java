@@ -3,6 +3,7 @@ import java.util.List;
 
 class Solution {
     public int[] solution(int[] arr) {
+        int[] stk = {};
         List<Integer> stkList = new ArrayList<>();
         int i = 0;
         while (i < arr.length) {
@@ -16,9 +17,7 @@ class Solution {
                 stkList.remove(stkList.get(stkList.size() - 1));
             }
         }
-        int[] stk = stkList.stream()
-                .mapToInt(Integer::intValue)
-                .toArray();
+        stk = stkList.stream().mapToInt(Integer::intValue).toArray();
         return stk;
     }
 }
