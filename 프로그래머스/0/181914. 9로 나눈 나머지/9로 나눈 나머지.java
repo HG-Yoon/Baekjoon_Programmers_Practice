@@ -1,11 +1,11 @@
 class Solution {
     public int solution(String number) {
         int answer = 0;
-        for (int i = 0; i < number.length(); i++) {
-            char c = number.charAt(i);
-            answer += c - '0';
+        int sum = 0;
+        for (char c : number.toCharArray()) {
+            sum += c - '0';
         }
-        answer %= 9;
+        answer = sum % 9;
         return answer;
     }
 }
