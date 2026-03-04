@@ -4,21 +4,17 @@ class Solution {
         if (a == b && a == c && a == d) {
             answer = 1111 * a;
         } else if (a == b && a == c && a != d) {
-            answer = (10 * a + d) * (10 * a + d);
-        } else if (a == b && a == d && a != c) {
-            answer = (10 * a + c) * (10 * a + c);
-        } else if (a == c && a == d && a != b) {
-            answer = (10 * a + b) * (10 * a + b);
+            answer = (int) Math.pow((10 * a + d), 2);
         } else if (b == c && b == d && b != a) {
-            answer = (10 * b + a) * (10 * b + a);
+            answer = (int) Math.pow((10 * b + a), 2);
+        } else if (a == c && a == d && a != b) {
+            answer = (int) Math.pow((10 * a + b), 2);
+        } else if (a == b && a == d && a != c) {
+            answer = (int) Math.pow((10 * a + c), 2);
         } else if (a == b && c == d && a != c) {
             answer = (a + c) * Math.abs(a - c);
         } else if (a == c && b == d && a != b) {
             answer = (a + b) * Math.abs(a - b);
-        } else if (b == c && a == d && b != a) {
-            answer = (b + a) * Math.abs(b - a);
-        } else if (b == d && a == c && b != a) {
-            answer = (b + a) * Math.abs(b - a);
         } else if (a == d && b == c && a != b) {
             answer = (a + b) * Math.abs(a - b);
         } else if (a == b && c != d && a != c && a != d) {
