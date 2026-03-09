@@ -3,7 +3,7 @@ class Solution {
         String answer = "";
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < my_string.length() / m; i++) {
-            sb.append(my_string.charAt(i * m + (c - 1)));
+            sb.append(my_string.charAt((c - 1) + i * m));
         }
         answer = sb.toString();
         return answer;
