@@ -1,12 +1,15 @@
 class Solution {
     public String solution(String my_string, int s, int e) {
         String answer = "";
-        String prefix = my_string.substring(0, s);
-        String part = my_string.substring(s, e + 1);
-        StringBuilder sb = new StringBuilder(part);
-        String reversedStr = sb.reverse().toString();
-        String suffix = my_string.substring(e + 1, my_string.length());
-        answer = prefix + reversedStr + suffix;
+        char[] myStringArr = my_string.toCharArray();
+        while (s < e) {
+            char tmp = myStringArr[s];
+            myStringArr[s] = myStringArr[e];
+            myStringArr[e] = tmp;
+            s++;
+            e--;
+        }
+        answer = String.valueOf(myStringArr);
         return answer;
     }
 }
