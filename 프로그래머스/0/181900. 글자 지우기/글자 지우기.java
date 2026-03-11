@@ -1,21 +1,20 @@
-import java.util.HashSet;
+import java.util.Arrays;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 class Solution {
     public String solution(String my_string, int[] indices) {
-        // 제거할 인덱스를 Set에 저장
-        Set<Integer> removeSet = new HashSet<>();
-        for (int idx : indices) {
-            removeSet.add(idx);
-        }
-        // StringBuilder로 결과 문자열 생성
+        String answer = "";
+        Set<Integer> set = Arrays.stream(indices)
+                .boxed()
+                .collect(Collectors.toSet());
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < my_string.length(); i++) {
-            // 제거 대상이 아니면 추가
-            if (!removeSet.contains(i)) {
+            if (!set.contains(i)) {
                 sb.append(my_string.charAt(i));
             }
         }
-        return sb.toString();
+        answer = sb.toString();
+        return answer;
     }
 }
