@@ -2,17 +2,17 @@ import java.util.Arrays;
 
 class Solution {
     public int[] solution(int[] arr, int[] query) {
+        int[] answer = {};
         int start = 0;
         int end = arr.length;
         for (int i = 0; i < query.length; i++) {
             if (i % 2 == 0) {
-                // 짝수 인덱스 -> 뒷부분 자르기
-                end = start + query[i] + 1;
+                end = start + query[i];
             } else {
-                // 홀수 인덱스 -> 앞부분 자르기
                 start = start + query[i];
             }
         }
-        return Arrays.copyOfRange(arr, start, end);
+        answer = Arrays.copyOfRange(arr, start, end + 1);
+        return answer;
     }
 }
