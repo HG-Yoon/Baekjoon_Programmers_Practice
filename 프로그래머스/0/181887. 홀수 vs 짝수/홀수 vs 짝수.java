@@ -2,20 +2,15 @@ class Solution {
     public int solution(int[] num_list) {
         int answer = 0;
         int oddSum = 0, evenSum = 0;
-        for (int i = 1; i <= num_list.length; i++) {
-            if (i % 2 != 0) {
-                oddSum += num_list[i - 1];
-            } else if (i % 2 == 0) {
-                evenSum += num_list[i - 1];
-            }
+        // 홀수 번째 원소들의 합
+        for (int i = 0; i < num_list.length; i += 2) {
+            oddSum += num_list[i];
         }
-        if (oddSum > evenSum) {
-            answer = oddSum;
-        } else if (oddSum < evenSum) {
-            answer = evenSum;
-        } else {
-            answer = oddSum;
+        // 짝수 번째 원소들의 합
+        for (int i = 1; i < num_list.length; i += 2) {
+            evenSum += num_list[i];
         }
+        answer = Math.max(oddSum, evenSum);
         return answer;
     }
 }
