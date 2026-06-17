@@ -3,11 +3,7 @@ class Solution {
         int answer = 0;
         int ab = Integer.parseInt(String.valueOf(a) + String.valueOf(b));
         int ba = Integer.parseInt(String.valueOf(b) + String.valueOf(a));
-        if (ab > ba || ab == ba) {
-            answer = ab;
-        } else {
-            answer = ba;
-        }
+        answer = ab == ba ? ab : Math.max(ab, ba);
         return answer;
     }
 }
