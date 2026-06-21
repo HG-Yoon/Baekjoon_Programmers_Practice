@@ -5,8 +5,8 @@ class Solution {
             answer = a + b + c;
         } else if ((a == b && a != c) || (a == c && a != b) || (b == c && b != a)) {
             answer = (a + b + c) * (a * a + b * b + c * c);
-        } else {
-            answer = (a + a + a) * (a * a + b * b + c * c) * (a * a * a + b * b * b + c * c * c);
+        } else if (a == b && a == c && b == c) {
+            answer = (a + b + c) * (a * a + b * b + c * c) * (a * a * a + b * b * b + c * c * c);
         }
         return answer;
     }
