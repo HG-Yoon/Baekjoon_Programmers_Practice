@@ -1,27 +1,32 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 class Solution {
     public int[] solution(int[] arr, int[][] queries) {
-        List<Integer> list = new ArrayList<>();
-        for (int a = 0; a < queries.length; a++) {
-            int s = queries[a][0];
-            int e = queries[a][1];
-            int k = queries[a][2];
-            int minValue = Integer.MAX_VALUE;
-            for (int b = s; b <= e; b++) {
-                if (arr[b] > k) {
-                    minValue = Math.min(minValue, arr[b]);
+        int[] answer = {};
+        List<Integer> answerList = new ArrayList<>();
+        List<Integer> tmpList = new ArrayList<>();
+        int input = 0;
+        for (int i = 0; i < queries.length; i++) {
+            tmpList.clear();
+            int s = queries[i][0];
+            int e = queries[i][1];
+            int k = queries[i][2];
+            for (int j = s; j <= e; j++) {
+                if (arr[j] > k) {
+                    tmpList.add(arr[j]);
                 }
             }
-            if (minValue == Integer.MAX_VALUE) {
-                list.add(-1);
+            if (tmpList.isEmpty()) {
+                answerList.add(-1);
             } else {
-                list.add(minValue);
+                answerList.add(Collections.min(tmpList));
             }
-
         }
-        int[] answer = list.stream().mapToInt(Integer::intValue).toArray();
+        answer = answerList.stream()
+                .mapToInt(Integer::intValue)
+                .toArray();
         return answer;
     }
 }
