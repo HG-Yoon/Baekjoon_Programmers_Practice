@@ -1,14 +1,14 @@
 class Solution {
     public int solution(int n, String control) {
         int answer = 0;
-        for (int i = 0; i < control.length(); i++) {
-            if (control.charAt(i) == 'w') {
+        for (char c : control.toCharArray()) {
+            if (c == 'w') {
                 n += 1;
-            } else if (control.charAt(i) == 's') {
+            } else if (c == 's') {
                 n -= 1;
-            } else if (control.charAt(i) == 'd') {
+            } else if (c == 'd') {
                 n += 10;
-            } else if (control.charAt(i) == 'a') {
+            } else if (c == 'a') {
                 n -= 10;
             }
         }
