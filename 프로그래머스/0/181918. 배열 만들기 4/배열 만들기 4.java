@@ -10,14 +10,18 @@ class Solution {
             if (stkList.isEmpty()) {
                 stkList.add(arr[i]);
                 i++;
-            } else if (stkList.get(stkList.size() - 1) < arr[i]) {
-                stkList.add(arr[i]);
-                i++;
             } else {
-                stkList.remove(stkList.get(stkList.size() - 1));
+                if (stkList.get(stkList.size() - 1) < arr[i]) {
+                    stkList.add(arr[i]);
+                    i++;
+                } else if (stkList.get(stkList.size() - 1) >= arr[i]) {
+                    stkList.remove(stkList.get(stkList.size() - 1));
+                }
             }
         }
-        stk = stkList.stream().mapToInt(Integer::intValue).toArray();
+        stk = stkList.stream()
+                .mapToInt(Integer::intValue)
+                .toArray();
         return stk;
     }
 }
