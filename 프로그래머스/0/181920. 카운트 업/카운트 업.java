@@ -8,7 +8,9 @@ class Solution {
         for (int i = start_num; i <= end_num; i++) {
             list.add(i);
         }
-        answer = list.stream().mapToInt(Integer::intValue).toArray();
+        answer = list.stream()
+                .mapToInt(Integer::intValue)
+                .toArray();
         return answer;
     }
 }
