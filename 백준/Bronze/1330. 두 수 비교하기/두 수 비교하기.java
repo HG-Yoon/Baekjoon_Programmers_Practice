@@ -1,22 +1,18 @@
-import java.io.*;
-import java.util.StringTokenizer;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        int a = Integer.parseInt(st.nextToken());
-        int b = Integer.parseInt(st.nextToken());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int a = scanner.nextInt();
+        int b = scanner.nextInt();
+
         if (a > b) {
-            bw.write(">");
+            System.out.println(">");
         } else if (a < b) {
-            bw.write("<");
+            System.out.println("<");
         } else {
-            bw.write("==");
+            System.out.println("==");
         }
-        bw.flush();
-        bw.close();
-        br.close();
     }
 }
