@@ -1,23 +1,19 @@
 import java.io.*;
 
 public class Main {
-    static int solution(int n) {
-        if ((n % 4 == 0 && n % 100 != 0) || (n % 400 == 0)) {
-            return 1;
-        } else {
-            return 0;
-        }
-    }
-
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int y = Integer.parseInt(br.readLine());
-        bw.write(String.valueOf(solution(y)));
+        if ((y % 4 == 0 && y % 100 != 0) || (y % 400 == 0)) {
+            bw.write("1");
+        } else {
+            bw.write("0");
+        }
 
+        br.close();
         bw.flush();
         bw.close();
-        br.close();
     }
 }
